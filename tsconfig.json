@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "jsx": "react",
+        "strict": false,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "outDir": "public/js",
+        "lib": [
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "resolveJsonModule": true,
+        "downlevelIteration": true
+    },
+    "include": [
+        "resources/**/*.ts",
+        "resources/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "storage",
+        "public"
+    ],
+}
