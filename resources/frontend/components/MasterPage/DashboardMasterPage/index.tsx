@@ -8,23 +8,20 @@ import { ExploreIcon } from '../../Ux/Icons'
 import LogoHorizontal from '../../Ux/Icons/LogoHorizontal'
 import SidebarLeft from './src/SidebarLeft/index'
 import NavBottom from './src/NavBottom/index'
+import NavTop from './src/NavTop/index'
 
 const DashboardMasterPage: React.FC = ({ children }) => {
   return (
     <ContainerScreen>
-      <Col h="100%" w="100%">
-        <Row flex={1}>
-          <SidebarLeft w={200} />
-          <Col flex={1} pos="relative">
-            <Col
-              pos="absolute"
-              top={0}
-              left={0}
-              w="100%"
-              h="100%"
-              overflowY="scroll"
-            >
-              {children}
+      <Col h="100%" w="100%" pos="relative">
+        <NavTop />
+        <Row flex={1} pos="relative" pl={2} py={2}>
+          <SidebarLeft w={250} rounded="3xl" bg="gray.900" shadow="lg" />
+          <Col flex={1} pos="relative" h="100%">
+            <Col pos="absolute" top={0} left={0} w="100%" h="100%">
+              <Box w="100%" h="100%" overflowY="auto" pt={20}>
+                {children}
+              </Box>
             </Col>
           </Col>
         </Row>

@@ -19,9 +19,15 @@ interface SidebarLeftProps extends BoxProps {}
 
 const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
   return (
-    <Col h="100%" {...rest}>
+    <Col
+      h="100%"
+      pos="relative"
+      zIndex={150}
+      bgGradient="linear(to-b, gray.900, gray.800)"
+      {...rest}
+    >
       <Row h={20}>
-        <LogoHorizontal h="100%" w="100%" p={2} py={4} objectFit="contain" />
+        <LogoHorizontal h="100%" w="100%" p={4} pr={20} objectFit="contain" />
       </Row>
       <Col px={2} mb={4}>
         <MenuLabel>Discover</MenuLabel>

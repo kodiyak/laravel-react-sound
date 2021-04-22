@@ -9,7 +9,7 @@ const MenuButton: React.FC<ButtonProps> = ({ children, ...rest }) => {
         w="100%"
         rounded="3xl"
         bg="transparent"
-        _hover={{ bg: 'gray.700' }}
+        _hover={{ bg: 'gray.800' }}
         {...rest}
       >
         <Text px={4} mr="auto">
