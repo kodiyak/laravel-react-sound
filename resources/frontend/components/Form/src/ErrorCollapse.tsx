@@ -3,7 +3,7 @@ import { useField } from '@unform/core'
 import { Collapse } from '@chakra-ui/transition'
 import Row from '../../../components/Utils/Row'
 import { Text, Square } from '@chakra-ui/layout'
-import { ExclamationIcon } from '../../../components/UX/Icons'
+import { ExclamationIcon } from '../../UX/Icons'
 
 interface ErrorCollapseProps extends ReturnType<typeof useField> {}
 

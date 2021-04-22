@@ -1,9 +1,9 @@
-const mix = require('laravel-mix');
-var LiveReloadPlugin = require('@kooneko/livereload-webpack-plugin');
+const mix = require('laravel-mix')
+const LiveReloadPlugin = require('@kooneko/livereload-webpack-plugin')
 
 mix.webpackConfig({
-    plugins: [new LiveReloadPlugin()]
-});
+  plugins: [new LiveReloadPlugin()],
+})
 
 /*
  |--------------------------------------------------------------------------
@@ -17,8 +17,8 @@ mix.webpackConfig({
  */
 
 mix
-    .ts('resources/frontend/index.tsx', 'public/js')
-    .react()
-    .browserSync('http://vote-app.test/');
+  .ts('resources/frontend/index.tsx', 'public/js')
+  .react()
+  .browserSync('http://laravel-react-sound.test/')
 
-mix.disableNotifications();
+mix.disableNotifications()

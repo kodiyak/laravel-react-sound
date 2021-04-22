@@ -13,7 +13,7 @@ class App {
 
   public getConfig() {
     // @ts-ignore
-    return APP_CONFIG as App.StaticConfig
+    return window.APP_CONFIG as App.StaticConfig
   }
 }
 

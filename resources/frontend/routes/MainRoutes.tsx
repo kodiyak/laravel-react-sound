@@ -1,11 +1,16 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 import Home from '../Home'
-import { Switch, Route, Link } from 'react-router-dom'
+import LoginPage from '../pages/LoginPage/index'
+import AuthRoutes from './AuthRoutes'
 
 const MainRoutes: React.FC = () => {
   return (
     <Switch>
+      <Route path="/login" component={LoginPage} />
       <Route exact path="/" component={Home} />
+
+      <AuthRoutes />
     </Switch>
   )
 }

@@ -10,10 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script type="text/javascript">
-        const APP_CONFIG = {
+        window.APP_CONFIG = {
             name: "{{env('APP_NAME')}}",
             appURL: "{{env('APP_URL')}}",
             apiURL: "{{env('API_URL')}}",
+            LOGOS: {
+                horizontal: {
+                    black: "http://laravel-react-sound.test/img/logo-horizontal-black.png",
+                    white: "http://laravel-react-sound.test/img/logo-horizontal-white.png"
+                },
+            }
         }
     </script>
 </head>
