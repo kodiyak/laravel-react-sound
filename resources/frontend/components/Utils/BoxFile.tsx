@@ -5,7 +5,7 @@ export interface BoxFileProps extends BoxProps {
   input?: InputProps
 }
 
-const BoxFile: React.FC<BoxFileProps> = ({ input, ...rest }) => {
+const BoxFile: React.FC<BoxFileProps> = ({ input, children, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   return (
@@ -14,6 +14,7 @@ const BoxFile: React.FC<BoxFileProps> = ({ input, ...rest }) => {
       onClick={() => {
         inputRef.current?.click()
       }}
+      {...rest}
     >
       <Input
         type="file"
@@ -29,7 +30,7 @@ const BoxFile: React.FC<BoxFileProps> = ({ input, ...rest }) => {
         overflow="hidden"
         {...input}
       />
-      <Box {...rest} />
+      <Box {...rest}>{children}</Box>
     </Box>
   )
 }

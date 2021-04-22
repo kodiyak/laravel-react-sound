@@ -33,9 +33,11 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
       <Row>
         <Textarea
           focusBorderColor="primary.400"
-          rounded="sm"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          rounded="xl"
+          bg="gray.600"
+          _focus={{ bg: 'white', color: 'gray.800' }}
           {...rest}
         />
         <ErrorCollapse {...field} />

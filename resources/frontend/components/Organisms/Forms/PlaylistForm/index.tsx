@@ -36,20 +36,8 @@ const PlaylistForm: React.FC = () => {
       <Col flex={1} pl={4}>
         <Box>
           <SimpleGrid flex={1} gap={2}>
-            <InputField
-              name="title"
-              label="Title"
-              rounded="xl"
-              bg="gray.600"
-              _focus={{ bg: 'white', color: 'gray.800' }}
-            />
-            <TextareaField
-              name="description"
-              label="Description"
-              rounded="xl"
-              bg="gray.600"
-              _focus={{ bg: 'white', color: 'gray.800' }}
-            />
+            <InputField name="title" label="Title" />
+            <TextareaField name="description" label="Description" />
           </SimpleGrid>
         </Box>
       </Col>

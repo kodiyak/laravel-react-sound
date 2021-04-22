@@ -33,9 +33,11 @@ const InputField: React.FC<InputFieldProps> = ({
       <Row>
         <Input
           focusBorderColor="primary.400"
-          rounded="sm"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          bg="gray.600"
+          _focus={{ bg: 'white', color: 'gray.800' }}
+          rounded="xl"
           {...rest}
         />
         <ErrorCollapse {...field} />

@@ -5,14 +5,15 @@ import PlaylistCard from '../../../components/Organisms/Playlist/PlaylistCard/in
 import Col from '../../../components/Utils/Col'
 import Row from '../../../components/Utils/Row'
 import ArtistCard from '../../../components/Organisms/Artist/ArtistCard/index'
+import TitlePage from '../../../components/Ux/Page/TitlePage'
 
 const HomePage: React.FC = () => {
   return (
-    <DashboardMasterPage>
+    <>
       <Box h={1500} px={4}>
         <Col>
           <Row mt={4} mb={2}>
-            <Heading size="2xl">Home</Heading>
+            <TitlePage>Home</TitlePage>
           </Row>
         </Col>
         <Col>
@@ -56,7 +57,7 @@ const HomePage: React.FC = () => {
           </SimpleGrid>
         </Col>
       </Box>
-    </DashboardMasterPage>
+    </>
   )
 }
 
