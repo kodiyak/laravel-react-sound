@@ -24,6 +24,7 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       pos="relative"
       zIndex={150}
       bgGradient="linear(to-b, gray.900, gray.800)"
+      overflowY="auto"
       {...rest}
     >
       <Row h={20}>

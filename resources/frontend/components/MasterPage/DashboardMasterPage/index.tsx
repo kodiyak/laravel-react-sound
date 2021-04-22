@@ -15,7 +15,7 @@ const DashboardMasterPage: React.FC = ({ children }) => {
     <ContainerScreen>
       <Col h="100%" w="100%" pos="relative">
         <NavTop />
-        <Row flex={1} pos="relative" pl={2} py={2}>
+        <Row flex={1} pos="relative" pl={2} py={2} overflow="hidden">
           <SidebarLeft w={250} rounded="3xl" bg="gray.900" shadow="lg" />
           <Col flex={1} pos="relative" h="100%">
             <Col pos="absolute" top={0} left={0} w="100%" h="100%">
