@@ -3,6 +3,7 @@ declare namespace App {
     'Modal.Test': {
       item: any
     }
+    'Modal.Playlist': {}
     'Scale.Test': {
       item: any
     }

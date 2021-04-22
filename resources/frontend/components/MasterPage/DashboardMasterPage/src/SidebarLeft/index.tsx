@@ -14,10 +14,13 @@ import {
 import LogoHorizontal from '../../../../Ux/Icons/LogoHorizontal'
 import MenuLabel from './MenuLabel'
 import MenuButton from './MenuButton'
+import { useDisclosure } from '../../../../../hooks/useDisclosure'
 
 interface SidebarLeftProps extends BoxProps {}
 
 const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
+  const modalPlaylist = useDisclosure('Modal.Playlist')
+
   return (
     <Col
       h="100%"
@@ -45,9 +48,14 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>
-        <Row alignItems="center">
+        <Row alignItems="center" mb={2}>
           <MenuLabel flex={1}>Playlists</MenuLabel>
-          <IconButton size={'sm'} bg="transparent" aria-label="New Playlist">
+          <IconButton
+            size={'xs'}
+            bg="transparent"
+            aria-label="New Playlist"
+            onClick={() => modalPlaylist.onOpen({})}
+          >
             <PlusIcon />
           </IconButton>
         </Row>

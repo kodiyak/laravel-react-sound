@@ -1,17 +1,14 @@
 import React from 'react'
 import Modal from '../../components/Ux/Modal'
+import ModalPlaylist from '../../components/Modals/ModalPlaylist/index'
 
 const ModalsContainer: React.FC = () => {
+  const modals = [ModalPlaylist]
   return (
     <>
-      <Modal
-        name="Modal.Test"
-        title="Modal de teste"
-        _modal={{ size: 'full' }}
-        _content={{ m: 0, shadow: 'none' }}
-      >
-        Oba
-      </Modal>
+      {modals.map((ModalComponent, keyModal) => (
+        <ModalComponent key={`modal${keyModal}`} />
+      ))}
     </>
   )
 }
