@@ -46,19 +46,6 @@ const ArtistForm: React.FC = () => {
           <InputField name="real_name" label="Real Name" />
           <InputField name="artistic_name" label="Artistic Name" />
           <TextareaField name="short_description" label="Short Description" />
-          <Row>
-            <Button
-              ml="auto"
-              rounded="2xl"
-              bg="primary.500"
-              color="white"
-              colorScheme="primary"
-              shadow="lg"
-              type="submit"
-            >
-              Create Artist
-            </Button>
-          </Row>
         </SimpleGrid>
       </Box>
     </Col>

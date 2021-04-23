@@ -5,15 +5,20 @@ import DashboardMasterPage from '../components/MasterPage/DashboardMasterPage'
 import NewArtistPage from '../pages/Auth/Artists/NewArtistPage'
 import ShowPlaylistPage from '../pages/Auth/Playlist/ShowPlaylistPage'
 import ShowAlbumPage from '../pages/Auth/Albuns/ShowAlbumPage'
+import NewAlbumPage from '../pages/Auth/Albuns/NewAlbumPage'
 
 const AuthRoutes: React.FC = () => {
   return (
     <DashboardMasterPage>
-      <Route path="/artists/new" component={NewArtistPage} />
-      <Route path="/playlist/:uuid" component={ShowPlaylistPage} />
-      <Route path="/album/:uuid" component={ShowAlbumPage} />
+      <Switch>
+        <Route path="/artist/new" component={NewArtistPage} />
+        <Route path="/playlist/:uuid" component={ShowPlaylistPage} />
 
-      <Route exact path="/" component={HomePage} />
+        <Route exact path="/album/new" component={NewAlbumPage} />
+        <Route path="/album/:uuid" component={ShowAlbumPage} />
+
+        <Route exact path="/" component={HomePage} />
+      </Switch>
     </DashboardMasterPage>
   )
 }
