@@ -68,11 +68,15 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
         <LogoHorizontal h="100%" w="100%" p={4} pr={20} objectFit="contain" />
       </Row>
       <Col px={2} mb={4}>
-        <MenuLabel>Discover</MenuLabel>
         <SimpleGrid gap={2}>
           <MenuButton to="/" leftIcon={<HomeIcon size={24} />}>
             Home
           </MenuButton>
+        </SimpleGrid>
+      </Col>
+      <Col px={2} mb={4}>
+        <MenuLabel>Discover</MenuLabel>
+        <SimpleGrid gap={2}>
           <MenuButton to="/explore" leftIcon={<ExploreIcon size={24} />}>
             Explore
           </MenuButton>
@@ -81,8 +85,8 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       <Col px={2} mb={4}>
         <MenuLabel>Library</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton to="/rescent" leftIcon={<SongIcon size={24} />}>
-            Rescent Songs
+          <MenuButton to="/recent" leftIcon={<SongIcon size={24} />}>
+            Recent Songs
           </MenuButton>
           <MenuButton to="/library/artists" leftIcon={<MicrophoneIcon size={24} />}>
             Artists
@@ -90,7 +94,7 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
           <MenuButton to="/library/albums" leftIcon={<AlbumIcon size={24} />}>
             Albums
           </MenuButton>
-          <MenuButton to="/favorite" leftIcon={<HeartIcon size={24} />}>
+          <MenuButton to="/favorites" leftIcon={<HeartIcon size={24} />}>
             Favorites
           </MenuButton>
         </SimpleGrid>
@@ -98,16 +102,16 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       <Col px={2} mb={4}>
         <MenuLabel>Contribution</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton to="/contribuitions/tracks" leftIcon={<SongIcon size={24} />}>
+          <MenuButton to="/contributions/tracks" leftIcon={<SongIcon size={24} />}>
             Tracks
           </MenuButton>
           <MenuButton
-            to="/contribuitions/artists"
+            to="/contributions/artists"
             leftIcon={<MicrophoneIcon size={24} />}
           >
             Artists
           </MenuButton>
-          <MenuButton to="/contribuitions/albums" leftIcon={<AlbumIcon size={24} />}>
+          <MenuButton to="/contributions/albums" leftIcon={<AlbumIcon size={24} />}>
             Albums
           </MenuButton>
         </SimpleGrid>

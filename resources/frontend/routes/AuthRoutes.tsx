@@ -6,6 +6,13 @@ import NewArtistPage from '../pages/Auth/Artists/NewArtistPage'
 import ShowPlaylistPage from '../pages/Auth/Playlist/ShowPlaylistPage'
 import ShowAlbumPage from '../pages/Auth/Albuns/ShowAlbumPage'
 import NewAlbumPage from '../pages/Auth/Albuns/NewAlbumPage'
+import ContributionTracksPage from '../pages/Auth/Contribution/ContributionTracksPage'
+import ContributionAlbumsPage from '../pages/Auth/Contribution/ContributionAlbumsPage'
+import ContributionArtistsPage from '../pages/Auth/Contribution/ContributionArtistsPage'
+import LibraryRecentPage from '../pages/Auth/Library/LibraryRecentPage'
+import LibraryArtistsPage from '../pages/Auth/Library/LibraryArtistsPage'
+import LibraryAlbumsPage from '../pages/Auth/Library/LibraryAlbumsPage'
+import LibraryFavoritesPage from '../pages/Auth/Library/LibraryFavoritesPage'
 
 const AuthRoutes: React.FC = () => {
   return (
@@ -16,6 +23,15 @@ const AuthRoutes: React.FC = () => {
 
         <Route exact path="/album/new" component={NewAlbumPage} />
         <Route path="/album/:uuid" component={ShowAlbumPage} />
+
+        <Route path="/contributions/tracks" component={ContributionTracksPage} />
+        <Route path="/contributions/albums" component={ContributionAlbumsPage} />
+        <Route path="/contributions/artists" component={ContributionArtistsPage} />
+
+        <Route path="/recent" component={LibraryRecentPage} />
+        <Route path="/library/artists" component={LibraryArtistsPage} />
+        <Route path="/library/albums" component={LibraryAlbumsPage} />
+        <Route path="/favorites" component={LibraryFavoritesPage} />
 
         <Route exact path="/" component={HomePage} />
       </Switch>
