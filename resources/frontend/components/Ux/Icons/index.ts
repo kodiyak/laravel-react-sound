@@ -12,6 +12,7 @@ export {
   AiFillHeart as HeartIcon,
   AiOutlinePlus as PlusIcon,
   AiOutlineClockCircle as ClockIcon,
+  AiOutlineHome as HomeIcon,
 } from 'react-icons/ai'
 export {
   BsCollectionPlayFill as AlbumIcon,

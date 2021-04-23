@@ -1,5 +1,12 @@
 import React from 'react'
-import { Box, BoxProps, Button, IconButton, SimpleGrid } from '@chakra-ui/react'
+import {
+  Box,
+  BoxProps,
+  Button,
+  IconButton,
+  SimpleGrid,
+  useToken,
+} from '@chakra-ui/react'
 import Col from '../../../../Utils/Col'
 import Row from '../../../../Utils/Row'
 import {
@@ -11,6 +18,7 @@ import {
   MicrophoneIcon,
   SongIcon,
   AlbumIcon,
+  HomeIcon,
 } from '../../../../Ux/Icons'
 import LogoHorizontal from '../../../../Ux/Icons/LogoHorizontal'
 import MenuLabel from './MenuLabel'
@@ -21,6 +29,12 @@ interface SidebarLeftProps extends BoxProps {}
 
 const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
   const modalPlaylist = useDisclosure('Modal.Playlist')
+  const scrollColor = useToken('colors', 'gray.900')
+  const scrollColorHover = useToken('colors', 'gray.700')
+  const scrollPadding = '25px'
+
+  const scrollGradient = (color: string) =>
+    `linear-gradient(to bottom, transparent ${scrollPadding}, ${color} ${scrollPadding}, ${color} calc(100% - ${scrollPadding}), transparent ${scrollPadding})`
 
   return (
     <Col
@@ -29,6 +43,25 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       zIndex={150}
       bgGradient="linear(to-b, gray.900, gray.800)"
       overflowY="auto"
+      sx={{
+        '&::-webkit-scrollbar': {
+          width: 1,
+          bg: 'transparent',
+        },
+        '&::-webkit-scrollbar-track': {
+          width: 1,
+          bg: 'transparent',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: scrollGradient(scrollColor),
+          rounded: 'sm',
+        },
+        '&:hover': {
+          '&::-webkit-scrollbar-thumb': {
+            background: scrollGradient(scrollColorHover),
+          },
+        },
+      }}
       {...rest}
     >
       <Row h={20}>
@@ -37,23 +70,46 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       <Col px={2} mb={4}>
         <MenuLabel>Discover</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton leftIcon={<ExploreIcon size={24} />}>Explore</MenuButton>
+          <MenuButton to="/" leftIcon={<HomeIcon size={24} />}>
+            Home
+          </MenuButton>
+          <MenuButton to="/explore" leftIcon={<ExploreIcon size={24} />}>
+            Explore
+          </MenuButton>
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>
         <MenuLabel>Library</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton leftIcon={<SongIcon size={24} />}>Rescent Songs</MenuButton>
-          <MenuButton leftIcon={<MicrophoneIcon size={24} />}>Artists</MenuButton>
-          <MenuButton leftIcon={<HeartIcon size={24} />}>Favorite</MenuButton>
+          <MenuButton to="/rescent" leftIcon={<SongIcon size={24} />}>
+            Rescent Songs
+          </MenuButton>
+          <MenuButton to="/library/artists" leftIcon={<MicrophoneIcon size={24} />}>
+            Artists
+          </MenuButton>
+          <MenuButton to="/library/albums" leftIcon={<AlbumIcon size={24} />}>
+            Albums
+          </MenuButton>
+          <MenuButton to="/favorite" leftIcon={<HeartIcon size={24} />}>
+            Favorites
+          </MenuButton>
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>
         <MenuLabel>Contribution</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton leftIcon={<SongIcon size={24} />}>Tracks</MenuButton>
-          <MenuButton leftIcon={<MicrophoneIcon size={24} />}>Artists</MenuButton>
-          <MenuButton leftIcon={<AlbumIcon size={24} />}>Albums</MenuButton>
+          <MenuButton to="/contribuitions/tracks" leftIcon={<SongIcon size={24} />}>
+            Tracks
+          </MenuButton>
+          <MenuButton
+            to="/contribuitions/artists"
+            leftIcon={<MicrophoneIcon size={24} />}
+          >
+            Artists
+          </MenuButton>
+          <MenuButton to="/contribuitions/albums" leftIcon={<AlbumIcon size={24} />}>
+            Albums
+          </MenuButton>
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>
@@ -69,14 +125,28 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
           </IconButton>
         </Row>
         <SimpleGrid gap={2}>
-          <MenuButton leftIcon={<ListIcon size={24} />}>Playlist 1</MenuButton>
-          <MenuButton color="primary.300" leftIcon={<ListCheckIcon size={24} />}>
+          <MenuButton to="/playlist/playlist-uuid" leftIcon={<ListIcon size={24} />}>
+            Playlist 1
+          </MenuButton>
+          <MenuButton
+            to="/playlist/playlist-uuid"
+            color="primary.300"
+            leftIcon={<ListCheckIcon size={24} />}
+          >
             Playlist 2
           </MenuButton>
-          <MenuButton leftIcon={<ListIcon size={24} />}>Playlist 3</MenuButton>
-          <MenuButton leftIcon={<ListIcon size={24} />}>Playlist 4</MenuButton>
-          <MenuButton leftIcon={<ListIcon size={24} />}>Playlist 5</MenuButton>
-          <MenuButton leftIcon={<ListIcon size={24} />}>Playlist 6</MenuButton>
+          <MenuButton to="/playlist/playlist-uuid" leftIcon={<ListIcon size={24} />}>
+            Playlist 3
+          </MenuButton>
+          <MenuButton to="/playlist/playlist-uuid" leftIcon={<ListIcon size={24} />}>
+            Playlist 4
+          </MenuButton>
+          <MenuButton to="/playlist/playlist-uuid" leftIcon={<ListIcon size={24} />}>
+            Playlist 5
+          </MenuButton>
+          <MenuButton to="/playlist/playlist-uuid" leftIcon={<ListIcon size={24} />}>
+            Playlist 6
+          </MenuButton>
         </SimpleGrid>
       </Col>
     </Col>
