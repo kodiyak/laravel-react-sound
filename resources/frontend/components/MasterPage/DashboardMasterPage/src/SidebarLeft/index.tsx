@@ -10,6 +10,7 @@ import {
   PlusIcon,
   MicrophoneIcon,
   SongIcon,
+  AlbumIcon,
 } from '../../../../Ux/Icons'
 import LogoHorizontal from '../../../../Ux/Icons/LogoHorizontal'
 import MenuLabel from './MenuLabel'
@@ -45,6 +46,14 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
           <MenuButton leftIcon={<SongIcon size={24} />}>Rescent Songs</MenuButton>
           <MenuButton leftIcon={<MicrophoneIcon size={24} />}>Artists</MenuButton>
           <MenuButton leftIcon={<HeartIcon size={24} />}>Favorite</MenuButton>
+        </SimpleGrid>
+      </Col>
+      <Col px={2} mb={4}>
+        <MenuLabel>Contribution</MenuLabel>
+        <SimpleGrid gap={2}>
+          <MenuButton leftIcon={<SongIcon size={24} />}>Tracks</MenuButton>
+          <MenuButton leftIcon={<MicrophoneIcon size={24} />}>Artists</MenuButton>
+          <MenuButton leftIcon={<AlbumIcon size={24} />}>Albums</MenuButton>
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>

@@ -14,6 +14,7 @@ export {
   AiOutlineClockCircle as ClockIcon,
 } from 'react-icons/ai'
 export {
+  BsCollectionPlayFill as AlbumIcon,
   BsCollectionPlayFill as VideosIcon,
   BsCheck as CheckIcon,
   BsExclamation as ExclamationIcon,
