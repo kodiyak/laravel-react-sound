@@ -1,7 +1,15 @@
 import { Box, Button, ButtonProps } from '@chakra-ui/react'
 import React from 'react'
 
-const UxLinkButton: React.FC<ButtonProps> = ({ children, ...rest }) => {
+interface UxLinkButtonProps extends ButtonProps {
+  underscoreColor?: string
+}
+
+const UxLinkButton: React.FC<UxLinkButtonProps> = ({
+  children,
+  underscoreColor = 'white',
+  ...rest
+}) => {
   return (
     <Button
       bg="transparent"
@@ -12,10 +20,21 @@ const UxLinkButton: React.FC<ButtonProps> = ({ children, ...rest }) => {
       h="auto"
       p={0}
       role="group"
+      paddingInline={0}
+      paddingInlineStart={0}
+      paddingInlineEnd={0}
+      userSelect="none"
       {...rest}
     >
       {children}
-      <Box w="100%" h="1px" bg="white" pos="absolute" bottom={0} left={0} />
+      <Box
+        w="100%"
+        h="1px"
+        bg={underscoreColor}
+        pos="absolute"
+        bottom={0}
+        left={0}
+      />
       <Box
         w="0"
         h="1px"

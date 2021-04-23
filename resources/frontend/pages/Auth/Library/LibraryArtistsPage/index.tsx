@@ -16,7 +16,7 @@ const LibraryArtistsPage: React.FC = () => {
           </Row>
         </PageHeader>
       </Row>
-      <ArtistsGrid>
+      <ArtistsGrid px={4}>
         <ArtistCard />
         <ArtistCard />
         <ArtistCard />

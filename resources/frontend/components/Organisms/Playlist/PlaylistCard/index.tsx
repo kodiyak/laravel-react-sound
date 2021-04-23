@@ -11,7 +11,7 @@ import PlayButton from '../../../Atoms/PlayButton/index'
 const PlaylistCard: React.FC = () => {
   return (
     <Col role="group">
-      <Col w="100%" h={400} pos="relative">
+      <Col w="100%" h={200} pos="relative">
         <CoverItem
           src="https://i.ytimg.com/vi/tgI6PjEq0O8/maxresdefault.jpg"
           left={0}

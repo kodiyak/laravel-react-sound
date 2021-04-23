@@ -7,20 +7,19 @@ import ArtistCard from '../../../components/Organisms/Artist/ArtistCard/index'
 import TitlePage from '../../../components/Ux/Page/TitlePage'
 import ArtistsGrid from '../../../components/Atoms/Grids/ArtistsGrid/index'
 import PlaylistGrid from '../../../components/Atoms/Grids/PlaylistGrid/index'
+import PageHeader from '../../../components/Atoms/Headers/PageHeader/index'
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Box h={1500} px={4}>
         <Col>
-          <Row mt={4} mb={2}>
-            <TitlePage>Home</TitlePage>
-          </Row>
+          <PageHeader title="Home" />
         </Col>
         <Col>
           <Row mt={4} mb={2}>
             <Heading size="lg" fontWeight={300}>
-              My Library
+              My Playlists
             </Heading>
           </Row>
           <PlaylistGrid>
