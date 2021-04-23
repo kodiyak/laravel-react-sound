@@ -8,7 +8,7 @@ interface PageHeaderProps {
   description?: string
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title, description, children }) => {
   return (
     <Col h={32} justifyContent="center">
       <TitlePage>{title}</TitlePage>
@@ -17,6 +17,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, description }) => {
           {description}
         </Heading>
       )}
+      {children}
     </Col>
   )
 }

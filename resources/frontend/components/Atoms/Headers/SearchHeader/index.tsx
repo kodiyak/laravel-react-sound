@@ -1,11 +1,20 @@
-import { Square, Input } from '@chakra-ui/react'
+import { Square, Input, InputProps, BoxProps } from '@chakra-ui/react'
 import React from 'react'
 import Row from '../../../Utils/Row'
 import { SearchIcon } from '../../../Ux/Icons'
 
-const SearchHeader: React.FC = () => {
+interface SearchHeaderProps extends BoxProps {
+  _input?: InputProps
+  placeholder?: string
+}
+
+const SearchHeader: React.FC<SearchHeaderProps> = ({
+  _input,
+  placeholder = 'Search in playlist...',
+  ...rest
+}) => {
   return (
-    <Row rounded="xl" _focusWithin={{ bg: 'gray.700' }}>
+    <Row rounded="xl" _focusWithin={{ bg: 'gray.700' }} {...rest}>
       <Square size={10}>
         <SearchIcon />
       </Square>
@@ -17,8 +26,9 @@ const SearchHeader: React.FC = () => {
         _active={{}}
         h={10}
         w={300}
-        placeholder="Search in playlist..."
+        placeholder={placeholder}
         _placeholder={{ color: 'gray.200' }}
+        {..._input}
       />
     </Row>
   )

@@ -1,11 +1,12 @@
-import { Box, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import React from 'react'
-import DashboardMasterPage from '../../../components/MasterPage/DashboardMasterPage/index'
 import PlaylistCard from '../../../components/Organisms/Playlist/PlaylistCard/index'
 import Col from '../../../components/Utils/Col'
 import Row from '../../../components/Utils/Row'
 import ArtistCard from '../../../components/Organisms/Artist/ArtistCard/index'
 import TitlePage from '../../../components/Ux/Page/TitlePage'
+import ArtistsGrid from '../../../components/Atoms/Grids/ArtistsGrid/index'
+import PlaylistGrid from '../../../components/Atoms/Grids/PlaylistGrid/index'
 
 const HomePage: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const HomePage: React.FC = () => {
               My Library
             </Heading>
           </Row>
-          <SimpleGrid columns={[1, 2, 2, 3, 4, 5]} gap={4}>
+          <PlaylistGrid>
             <PlaylistCard />
             <PlaylistCard />
             <PlaylistCard />
@@ -33,7 +34,7 @@ const HomePage: React.FC = () => {
             <PlaylistCard />
             <PlaylistCard />
             <PlaylistCard />
-          </SimpleGrid>
+          </PlaylistGrid>
         </Col>
         <Col mt={8}>
           <Row mt={4} mb={2}>
@@ -41,7 +42,7 @@ const HomePage: React.FC = () => {
               Artists
             </Heading>
           </Row>
-          <SimpleGrid columns={[1, 2, 3, 4, 5, 6]} gap={4}>
+          <ArtistsGrid>
             <ArtistCard />
             <ArtistCard />
             <ArtistCard />
@@ -54,7 +55,7 @@ const HomePage: React.FC = () => {
             <ArtistCard />
             <ArtistCard />
             <ArtistCard />
-          </SimpleGrid>
+          </ArtistsGrid>
         </Col>
       </Box>
     </>
