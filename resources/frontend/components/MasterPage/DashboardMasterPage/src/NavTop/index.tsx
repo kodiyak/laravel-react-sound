@@ -10,7 +10,7 @@ const NavTop: React.FC = () => {
   return (
     <Row
       h={16}
-      bgGradient="linear(to-b, rgba(0,0,0,.5), transparent)"
+      bgGradient="linear(to-b, gray.900, gray.800)"
       pos="fixed"
       w="100%"
       zIndex={100}
