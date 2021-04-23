@@ -10,13 +10,15 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, description, children }) => {
   return (
-    <Col h={32} justifyContent="center">
-      <TitlePage>{title}</TitlePage>
-      {description && (
-        <Heading mt={4} size="md" color="gray.500">
-          {description}
-        </Heading>
-      )}
+    <Col pb={4}>
+      <Col h={32} justifyContent="center">
+        <TitlePage>{title}</TitlePage>
+        {description && (
+          <Heading mt={4} size="md" color="gray.500">
+            {description}
+          </Heading>
+        )}
+      </Col>
       {children}
     </Col>
   )
