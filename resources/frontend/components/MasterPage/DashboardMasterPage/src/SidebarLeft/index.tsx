@@ -24,6 +24,8 @@ import LogoHorizontal from '../../../../Ux/Icons/LogoHorizontal'
 import MenuLabel from './MenuLabel'
 import MenuButton from './MenuButton'
 import { useDisclosure } from '../../../../../hooks/useDisclosure'
+import MenuButtonSkeleton from './MenuButtonSkeleton'
+import StartCollaborating from './StartCollaborating'
 
 interface SidebarLeftProps extends BoxProps {}
 
@@ -102,7 +104,7 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
       <Col px={2} mb={4}>
         <MenuLabel>Contribution</MenuLabel>
         <SimpleGrid gap={2}>
-          <MenuButton to="/contributions/tracks" leftIcon={<SongIcon size={24} />}>
+          {/* <MenuButton to="/contributions/tracks" leftIcon={<SongIcon size={24} />}>
             Tracks
           </MenuButton>
           <MenuButton
@@ -113,7 +115,8 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ ...rest }) => {
           </MenuButton>
           <MenuButton to="/contributions/albums" leftIcon={<AlbumIcon size={24} />}>
             Albums
-          </MenuButton>
+          </MenuButton> */}
+          <StartCollaborating />
         </SimpleGrid>
       </Col>
       <Col px={2} mb={4}>
