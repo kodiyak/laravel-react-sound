@@ -3,14 +3,17 @@ import React from 'react'
 import Col from '../../../../components/Utils/Col'
 import Row from '../../../../components/Utils/Row'
 import PlaylistHeader from '../../../../components/Organisms/Playlist/PlaylistHeader'
+import SongList from '../../../../components/Organisms/Song/SongList/index'
 
 const ShowPlaylistPage: React.FC = () => {
   return (
     <Col w="100%" h="100%" pos="absolute" left={0} top={0}>
-      <Box pos="relative" w="100%" h="100%" overflowY="scroll" pt={20}>
+      <Box pos="relative" w="100%" h="100%" overflowY="scroll" pt={16}>
         <PlaylistHeader />
-        <Row h={10} bg="black" pos="sticky" top={0} left={0}></Row>
-        <Row h={1500}></Row>
+
+        <Col h={1500}>
+          <SongList />
+        </Col>
       </Box>
     </Col>
   )

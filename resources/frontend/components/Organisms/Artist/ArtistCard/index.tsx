@@ -5,6 +5,7 @@ import Col from '../../../Utils/Col'
 import { Text } from '@chakra-ui/layout'
 import Row from '../../../Utils/Row'
 import { PlayIcon } from '../../../Ux/Icons'
+import PlayButton from '../../../Atoms/PlayButton/index'
 
 const ArtistCard: React.FC = () => {
   return (
@@ -27,16 +28,7 @@ const ArtistCard: React.FC = () => {
           opacity={0}
           _groupHover={{ opacity: 1 }}
         >
-          <Circle
-            size={16}
-            border="2px solid transparent"
-            borderColor="white"
-            _hover={{ transform: 'scale(1.1)', bg: 'rgba(0,0,0,.5)' }}
-            _active={{ transform: 'scale(0.9)' }}
-            transition="transform .2s ease-in-out"
-          >
-            <PlayIcon size={30} />
-          </Circle>
+          <PlayButton size={16} iconSize={30} />
         </BoxOverlay>
       </Circle>
       <Row justifyContent="center" pt={4}>

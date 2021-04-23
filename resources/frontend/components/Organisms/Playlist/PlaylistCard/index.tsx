@@ -6,6 +6,7 @@ import CoverItem from './src/CoverItem'
 import BoxOverlay from '../../../Utils/BoxOverlay'
 import SlideUpGroupHover from '../../../Utils/GroupHover/SlideUpGroupHover'
 import { PlayIcon } from '../../../Ux/Icons'
+import PlayButton from '../../../Atoms/PlayButton/index'
 
 const PlaylistCard: React.FC = () => {
   return (
@@ -27,16 +28,7 @@ const PlaylistCard: React.FC = () => {
             _groupHover: { opacity: 1 },
           }}
         >
-          <Circle
-            size={16}
-            border="2px solid transparent"
-            borderColor="white"
-            _hover={{ transform: 'scale(1.1)', bg: 'rgba(0,0,0,.5)' }}
-            _active={{ transform: 'scale(0.9)' }}
-            transition="transform .2s ease-in-out"
-          >
-            <PlayIcon size={30} />
-          </Circle>
+          <PlayButton size={16} iconSize={30} />
         </CoverItem>
         <CoverItem
           src="https://i1.sndcdn.com/artworks-000558140136-1oew3t-t500x500.jpg"

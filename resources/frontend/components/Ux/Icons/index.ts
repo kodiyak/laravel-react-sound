@@ -11,6 +11,7 @@ export {
   AiOutlineCompass as ExploreIcon,
   AiFillHeart as HeartIcon,
   AiOutlinePlus as PlusIcon,
+  AiOutlineClockCircle as ClockIcon,
 } from 'react-icons/ai'
 export {
   BsCollectionPlayFill as VideosIcon,
