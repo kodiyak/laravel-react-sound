@@ -13,6 +13,7 @@ import Row from '../../../Utils/Row'
 import TextMini from '../../../Utils/TextMini'
 import { Square } from '@chakra-ui/layout'
 import { CogIcon, DashboardIcon } from '../../../Ux/Icons'
+import { Link } from 'react-router-dom'
 
 const AuthUserMenu: React.FC = ({ children }) => {
   return (
@@ -21,14 +22,16 @@ const AuthUserMenu: React.FC = ({ children }) => {
         {children}
       </MenuButton>
       <MenuList border={0} rounded="sm" bg="gray.900">
-        <MenuItem>
-          <Row alignItems="center">
-            <Avatar size="sm" ml={1} />
-            <TextMini flex={1} ml={4}>
-              Edit Profile
-            </TextMini>
-          </Row>
-        </MenuItem>
+        <Link to="/settings/profile">
+          <MenuItem>
+            <Row alignItems="center">
+              <Avatar size="sm" ml={1} />
+              <TextMini flex={1} ml={4}>
+                Edit Profile
+              </TextMini>
+            </Row>
+          </MenuItem>
+        </Link>
         <MenuItem isDisabled>
           <Row alignItems="center">
             <Square size={10}>

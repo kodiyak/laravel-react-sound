@@ -12,7 +12,7 @@ const SongList: React.FC = () => {
       <Row
         h={8}
         bg="gray.800"
-        zIndex={100}
+        zIndex={90}
         borderBottom="1px solid transparent"
         borderColor="gray.700"
         pos="sticky"

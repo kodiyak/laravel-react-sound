@@ -15,6 +15,7 @@ import LibraryAlbumsPage from '../pages/Auth/Library/LibraryAlbumsPage'
 import LibraryFavoritesPage from '../pages/Auth/Library/LibraryFavoritesPage'
 import ExplorePage from '../pages/Auth/ExplorePage'
 import ContributionStartPage from '../pages/Auth/Contribution/ContributionStartPage'
+import SettingsProfilePage from '../pages/Auth/Settings/SettingsProfilePage'
 
 const AuthRoutes: React.FC = () => {
   return (
@@ -30,6 +31,8 @@ const AuthRoutes: React.FC = () => {
         <Route path="/contributions/tracks" component={ContributionTracksPage} />
         <Route path="/contributions/albums" component={ContributionAlbumsPage} />
         <Route path="/contributions/artists" component={ContributionArtistsPage} />
+
+        <Route path="/settings/profile" component={SettingsProfilePage} />
 
         <Route path="/recent" component={LibraryRecentPage} />
         <Route path="/library/artists" component={LibraryArtistsPage} />
