@@ -5,6 +5,7 @@ import { DownIcon, SearchIcon } from '../../../../Ux/Icons'
 import { Avatar, Input, Box, Circle } from '@chakra-ui/react'
 import Col from '../../../../Utils/Col'
 import TextMini from '../../../../Utils/TextMini'
+import UserBox from './src/UserBox/index'
 
 const NavTop: React.FC = () => {
   return (
@@ -37,24 +38,8 @@ const NavTop: React.FC = () => {
           w={200}
         />
       </Row>
-      <Row h="100%" alignItems="center" ml="auto">
-        <Circle
-          size={10}
-          p={1}
-          border="2px solid transparent"
-          borderColor="green.500"
-        >
-          <Avatar w="100%" h="100%" />
-        </Circle>
-        <Col pl={4} pr={2}>
-          <TextMini>Username S.</TextMini>
-          <Text fontSize="xs" fontWeight="light">
-            User
-          </Text>
-        </Col>
-        <Box>
-          <DownIcon />
-        </Box>
+      <Row ml="auto" h="100%">
+        <UserBox />
       </Row>
     </Row>
   )

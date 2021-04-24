@@ -13,6 +13,7 @@ export {
   AiOutlinePlus as PlusIcon,
   AiOutlineClockCircle as ClockIcon,
   AiOutlineHome as HomeIcon,
+  AiOutlineSetting as CogIcon,
 } from 'react-icons/ai'
 export {
   BsCollectionPlayFill as AlbumIcon,
@@ -28,6 +29,7 @@ export {
   BsVolumeMute as VolumeMuteIcon,
   BsVolumeUp as VolumeUpIcon,
   BsVolumeDown as VolumeDownIcon,
+  BsLayoutWtf as DashboardIcon,
 } from 'react-icons/bs'
 export { FaRandom as RandomIcon } from 'react-icons/fa'
 export { ImLoop2 as LoopIcon } from 'react-icons/im'
