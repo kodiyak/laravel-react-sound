@@ -41,14 +41,16 @@ const AuthUserMenu: React.FC = ({ children }) => {
           </Row>
         </MenuItem>
         <Row h={'1px'} bg="gray.800" my={2} />
-        <MenuItem>
-          <Row alignItems="center">
-            <Square size={10}>
-              <DashboardIcon size={20} />
-            </Square>
-            <TextMini pl={4}>Admin Dashboard</TextMini>
-          </Row>
-        </MenuItem>
+        <Link to="/admin/dashboard">
+          <MenuItem>
+            <Row alignItems="center">
+              <Square size={10}>
+                <DashboardIcon size={20} />
+              </Square>
+              <TextMini pl={4}>Admin Dashboard</TextMini>
+            </Row>
+          </MenuItem>
+        </Link>
       </MenuList>
     </Menu>
   )
