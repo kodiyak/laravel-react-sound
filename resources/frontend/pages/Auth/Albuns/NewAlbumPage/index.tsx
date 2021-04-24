@@ -6,13 +6,12 @@ import { FormProvider } from '../../../../contexts/FormProvider'
 import AlbumForm from '../../../../components/Organisms/Forms/AlbumForm/index'
 import { Button } from '@chakra-ui/react'
 import RowImage from '../../../../components/Atoms/RowImage'
+import PageHeader from '../../../../components/Atoms/Headers/PageHeader/index'
 
 const NewAlbumPage: React.FC = () => {
   return (
     <Col px={4}>
-      <Row>
-        <TitlePage>Create an Album</TitlePage>
-      </Row>
+      <PageHeader title="Create an Album" />
       <FormProvider
         onSubmit={(data) => {
           console.log('submit', data)

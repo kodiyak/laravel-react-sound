@@ -14,6 +14,7 @@ import LibraryArtistsPage from '../pages/Auth/Library/LibraryArtistsPage'
 import LibraryAlbumsPage from '../pages/Auth/Library/LibraryAlbumsPage'
 import LibraryFavoritesPage from '../pages/Auth/Library/LibraryFavoritesPage'
 import ExplorePage from '../pages/Auth/ExplorePage'
+import ContributionStartPage from '../pages/Auth/Contribution/ContributionStartPage'
 
 const AuthRoutes: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const AuthRoutes: React.FC = () => {
         <Route exact path="/album/new" component={NewAlbumPage} />
         <Route path="/album/:uuid" component={ShowAlbumPage} />
 
+        <Route path="/contributions/start" component={ContributionStartPage} />
         <Route path="/contributions/tracks" component={ContributionTracksPage} />
         <Route path="/contributions/albums" component={ContributionAlbumsPage} />
         <Route path="/contributions/artists" component={ContributionArtistsPage} />

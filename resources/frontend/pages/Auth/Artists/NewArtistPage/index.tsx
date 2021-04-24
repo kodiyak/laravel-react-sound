@@ -6,13 +6,12 @@ import Row from '../../../../components/Utils/Row'
 import TitlePage from '../../../../components/Ux/Page/TitlePage'
 import { FormProvider } from '../../../../contexts/FormProvider'
 import ArtistForm from '../../../../components/Organisms/Forms/ArtistForm/index'
+import PageHeader from '../../../../components/Atoms/Headers/PageHeader/index'
 
 const NewArtistPage: React.FC = () => {
   return (
     <Col px={4}>
-      <Row>
-        <TitlePage>Create an Artist</TitlePage>
-      </Row>
+      <PageHeader title="Create an Artist" />
       <FormProvider>
         <ArtistForm />
         <Row maxW={600}>
