@@ -14,9 +14,14 @@ const CheckOptionsField: React.FC<CheckOptionsFieldProps> = ({
   CheckComponent = SquareCheck,
   ...props
 }) => {
-  const { options, getLabel, isItemSelected, toggleItem, field } = useSelectOption(
-    props
-  )
+  const {
+    options,
+    getLabel,
+    isItemSelected,
+    toggleItem,
+    items,
+    field,
+  } = useSelectOption(props)
 
   return (
     <>

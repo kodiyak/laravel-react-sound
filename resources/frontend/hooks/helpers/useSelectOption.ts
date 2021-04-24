@@ -26,6 +26,12 @@ export function useSelectOption({
   const [isInit, setInit] = useState(false)
   const field = useField(name)
 
+  const initialize = () => {
+    setTimeout(() => {
+      setInit(true)
+    }, 0)
+  }
+
   const getOptionByIndex = (indexValue: string) => {
     return options.find((option) => option[index] === indexValue)
   }
@@ -45,28 +51,58 @@ export function useSelectOption({
   const getIndex = (option: any) => option[index]
 
   const toggleItem = (option: any) => {
-    if (isMultiple) {
-      if (isItemSelected(option)) {
-        setItem((oldItems: any) =>
-          oldItems.filter((oldItem: any) => oldItem[index] !== option[index])
-        )
-      } else {
-        setItem((oldItems: any) => [...oldItems, option])
-      }
+    if (isItemSelected(option)) {
+      removeItem(option)
     } else {
-      if (isToggle && isItemSelected(option)) {
-        setItem(undefined)
-      } else {
-        setItem(() => option)
-      }
+      selectItem(option)
     }
   }
 
   const fetchDefaultValue = (_defaultValue: any) => {
-    if (isMultiple) {
-      setItem(() => _defaultValue?.map((value: any) => getOptionByIndex(value)))
+    setTimeout(() => {
+      if (isMultiple) {
+        selectMultipleItems(_defaultValue)
+      } else {
+        selectItem(getOptionByIndex(_defaultValue))
+      }
+    }, 0)
+  }
+
+  const selectMultipleItems = (options: any[]) => {
+    if (!Array.isArray(options)) return
+
+    const newValues = options.map((val) => getOptionByIndex(val))
+
+    if (!item) {
+      setItem(() => newValues)
     } else {
-      setItem(() => getOptionByIndex(_defaultValue))
+      setItem((oldItems) => [...oldItems, ...newValues])
+    }
+  }
+
+  const selectItem = (option: any) => {
+    if (isMultiple) {
+      if (!item) {
+        setTimeout(() => {
+          setItem([option])
+        }, 0)
+      } else {
+        setItem((oldItems: any) => [...oldItems, option])
+      }
+    } else {
+      setItem(() => option)
+    }
+  }
+
+  const removeItem = (option: any) => {
+    if (isMultiple) {
+      setItem((oldItems: any) =>
+        oldItems.filter((oldItem: any) => oldItem[index] !== option[index])
+      )
+    } else {
+      if (isToggle && isItemSelected(option)) {
+        setItem(() => undefined)
+      }
     }
   }
 
@@ -78,7 +114,7 @@ export function useSelectOption({
         setItem(() => [])
       }
     }
-    setInit(true)
+    initialize()
   }, [])
 
   useEffect(() => {
@@ -108,7 +144,7 @@ export function useSelectOption({
       },
       setValue: (_, value) => {
         fetchDefaultValue(value)
-        setInit(true)
+        initialize()
       },
     })
   }, [field.registerField, item, field.fieldName])

@@ -17,6 +17,7 @@ import ExplorePage from '../pages/Auth/ExplorePage'
 import ContributionStartPage from '../pages/Auth/Contribution/ContributionStartPage'
 import SettingsProfilePage from '../pages/Auth/Settings/SettingsProfilePage'
 import AdminDashboardPage from '../pages/Auth/Admin/AdminDashboardPage'
+import AdminAlbumsListPage from '../pages/Auth/Admin/Albuns/AdminAlbumsListPage'
 
 const AuthRoutes: React.FC = () => {
   return (
@@ -41,6 +42,7 @@ const AuthRoutes: React.FC = () => {
         <Route path="/favorites" component={LibraryFavoritesPage} />
 
         <Route path="/admin/dashboard" component={AdminDashboardPage} />
+        <Route path="/admin/albums" component={AdminAlbumsListPage} />
 
         <Route path="/explore" component={ExplorePage} />
 

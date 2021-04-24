@@ -28,6 +28,7 @@ const SearchHeader: React.FC<SearchHeaderProps> = ({
         w={300}
         placeholder={placeholder}
         _placeholder={{ color: 'gray.200' }}
+        flex={1}
         {..._input}
       />
     </Row>

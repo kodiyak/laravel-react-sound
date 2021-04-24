@@ -4,6 +4,7 @@ import Row from '../../../../../../components/Utils/Row'
 import StatItem from '../StatItem'
 import ListItem from '../ListItem'
 import { AlbumIcon } from '../../../../../../components/Ux/Icons'
+import { Link } from 'react-router-dom'
 
 const StatAlbums: React.FC = () => {
   return (
@@ -28,9 +29,9 @@ const StatAlbums: React.FC = () => {
           to="/album/album-uuid"
         />
         <Row px={2} mt="auto">
-          <Button size="sm" ml="auto">
-            See all
-          </Button>
+          <Link to="/admin/albums" style={{ marginLeft: 'auto' }}>
+            <Button size="sm">See all</Button>
+          </Link>
         </Row>
       </SimpleGrid>
     </StatItem>
