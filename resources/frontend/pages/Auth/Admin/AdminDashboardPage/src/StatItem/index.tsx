@@ -24,7 +24,7 @@ const StatItem: React.FC<StatItemProps> = ({
     <Col bg="gray.900" rounded="lg" shadow="md">
       <Row p={2} alignItems="center">
         {icon && (
-          <Square size={20} color="white" rounded="lg" bg={squareColor}>
+          <Square size={20} color="white" rounded="50%" bg={squareColor}>
             {icon}
           </Square>
         )}
