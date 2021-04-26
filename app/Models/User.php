@@ -6,10 +6,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasUuid;
+
+    public const ADMIN = 1;
+    public const USER = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +29,7 @@ class User extends Authenticatable
         'password',
         'is_banned',
         'ban_reason',
+        'role',
         'is_contributor',
     ];
 

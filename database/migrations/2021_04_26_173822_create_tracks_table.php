@@ -15,6 +15,7 @@ class CreateTracksTable extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('path_track')->nullable();
             $table->foreignId('album_id')->references('id')->on('albums');
             $table->timestamps();

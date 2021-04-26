@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class Album extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuid;
 
     /**
      * The attributes that are mass assignable.

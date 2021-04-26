@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'mathewsto51@gmail.com',
             'password' => Hash::make('s.o536123'),
             'is_contributor' => true,
+            'role' => User::ADMIN,
         ]);
     }
 }

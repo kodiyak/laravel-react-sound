@@ -15,6 +15,7 @@ class CreateArtistsTable extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('real_name')->nullable();
             $table->string('artistic_name');
             $table->text('description')->nullable();

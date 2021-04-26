@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('username')->unique();
             $table->string('avatar')->nullable();
             $table->string('first_name');
@@ -24,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_banned')->nullable();
             $table->text('ban_reason')->nullable();
+            $table->integer('role');
             $table->boolean('is_contributor')->nullable();
             $table->rememberToken();
             $table->timestamps();
