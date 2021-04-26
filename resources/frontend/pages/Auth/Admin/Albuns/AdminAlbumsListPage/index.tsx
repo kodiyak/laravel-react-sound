@@ -14,6 +14,7 @@ import DropdownOptionsInput from '../../../../../components/Form/DropdownOptions
 import InputField from '../../../../../components/Form/InputField'
 import SearchHeader from '../../../../../components/Atoms/Headers/SearchHeader/index'
 import AlbumFilter from '../../../../../components/Organisms/Album/AlbumFilter/index'
+import FilterForm from '../../../../../components/Organisms/Forms/FilterForm/index'
 
 const AdminAlbunsListPage: React.FC = () => {
   return (
@@ -21,7 +22,11 @@ const AdminAlbunsListPage: React.FC = () => {
       <Col px={4}>
         <PageHeader icon={<AlbumIcon size={40} />} title="List Albums" />
         <TextMini color="gray.500">Filter</TextMini>
-        <AlbumFilter />
+        <AlbumFilter
+          onChangeEnd={(value) => {
+            console.log('album filter', value)
+          }}
+        />
       </Col>
       <TableHeader
         items={[

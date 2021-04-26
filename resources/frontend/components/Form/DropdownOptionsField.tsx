@@ -15,7 +15,7 @@ import {
 } from '../../hooks/helpers/useSelectOption'
 import SquareCheck from '../Utils/SquareCheck'
 
-interface DropdownOptionsInputProps extends SelectOptionProps {
+export interface DropdownOptionsInputProps extends SelectOptionProps {
   withCheck?: boolean
   _container?: ButtonProps
   _item?: MenuItemProps

@@ -8,6 +8,7 @@ export interface SelectOptionProps {
   name: string
   defaultValue?: any
   onChange?: (value: any) => void
+  onInit?: (value: any) => void
   isMultiple?: boolean
   isToggle?: boolean
 }
@@ -19,6 +20,7 @@ export function useSelectOption({
   options,
   defaultValue,
   onChange,
+  onInit,
   isMultiple = false,
   isToggle = false,
 }: SelectOptionProps) {
@@ -128,6 +130,12 @@ export function useSelectOption({
       onChange?.(item)
     }
   }, [item])
+
+  useEffect(() => {
+    if (isInit) {
+      onInit?.(item)
+    }
+  }, [isInit])
 
   useEffect(() => {
     field.registerField({

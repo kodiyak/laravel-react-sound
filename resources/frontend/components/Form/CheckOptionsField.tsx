@@ -6,7 +6,7 @@ import {
   useSelectOption,
 } from '../../hooks/helpers/useSelectOption'
 
-interface CheckOptionsFieldProps extends SelectOptionProps {
+export interface CheckOptionsFieldProps extends SelectOptionProps {
   CheckComponent?: React.FC
 }
 
