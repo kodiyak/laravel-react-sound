@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const StatAlbums: React.FC = () => {
   return (
-    <StatItem title="2" description="Playlists" icon={<AlbumIcon size={40} />}>
+    <StatItem title="2" description="Albums" icon={<AlbumIcon size={40} />}>
       <SimpleGrid gap={2} pb={2}>
         <ListItem
           icon={<AlbumIcon />}
