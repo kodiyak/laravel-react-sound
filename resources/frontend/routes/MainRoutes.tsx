@@ -5,7 +5,7 @@ import LoginPage from '../pages/LoginPage/index'
 import AuthRoutes from './AuthRoutes'
 
 const MainRoutes: React.FC = () => {
-  const isAuth = true
+  const isAuth = false
   return (
     <Switch>
       {!isAuth && (
