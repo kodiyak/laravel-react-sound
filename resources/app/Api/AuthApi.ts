@@ -20,6 +20,9 @@ export class AuthApi {
     })
       .then((res) => {
         console.log('res', res.data)
+        App.Ux.Router.history((history) => {
+          history.push('/')
+        })
       })
       .catch((err) => {
         console.error('error', err)
