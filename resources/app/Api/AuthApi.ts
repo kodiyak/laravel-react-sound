@@ -6,6 +6,13 @@ export interface AuthCredentials {
   password: string
 }
 
+interface AuthToken {
+  access_token: string
+  expires_in: number
+  refresh_token: string
+  token_type: string
+}
+
 export class AuthApi {
   private authPayload = {
     grant_type: 'password',
@@ -13,19 +20,63 @@ export class AuthApi {
     client_secret: 'lu7EpkifHRdN9nFxhSETF0b17M4FWfeRkLu2HiWi',
   }
 
+  private AUTH_TOKEN = 'auth.token'
+
+  private _token?: AuthToken
+
+  public get token() {
+    return this._token
+  }
+
+  public set token(token) {
+    this.setLocalToken(token).authenticateAxios(token)
+    this._token = token
+  }
+
+  public constructor() {
+    setTimeout(() => {
+      const token = this.getLocalToken()
+      if (token) {
+        this.token = token
+      }
+    }, 0)
+  }
+
   public authenticate(credentials: AuthCredentials) {
-    return App.Axios.post('/oauth/token', {
+    return App.Axios.post<AuthToken>('/oauth/token', {
       ...this.authPayload,
       ...credentials,
+    }).then((res) => {
+      this.token = res.data
+      return res.data
+      // App.Ux.Router.history((history) => {
+      //   history.push('/')
+      //   App.Ux.Notification.notify({
+      //     title: 'You Successfully Authenticate',
+      //     position: 'bottom-right',
+      //     status: 'success',
+      //   })
+      // })
     })
-      .then((res) => {
-        console.log('res', res.data)
-        App.Ux.Router.history((history) => {
-          history.push('/')
-        })
-      })
-      .catch((err) => {
-        console.error('error', err)
-      })
+  }
+
+  public getLocalToken() {
+    const token = localStorage.getItem(this.AUTH_TOKEN)
+
+    if (!token) return
+
+    return JSON.parse(token) as AuthToken
+  }
+
+  public setLocalToken(token: AuthToken) {
+    localStorage.setItem(this.AUTH_TOKEN, JSON.stringify(token))
+
+    return this
+  }
+
+  private authenticateAxios(token: AuthToken) {
+    App.Axios.defaults.headers.Authorization = `${token.token_type} ${token.access_token}`
+
+    return this
   }
 }
