@@ -7,9 +7,11 @@ import SignUpForm from './src/SignUpForm'
 import Row from '../../components/Utils/Row'
 import LogoHorizontal from '../../components/Ux/Icons/LogoHorizontal'
 import { Badge } from '@chakra-ui/react'
+import { useAuth } from '../../containers/AuthContainer'
 
 const LoginPage: React.FC = () => {
   const [isLoginForm, setLoginForm] = useState(true)
+  const { auth } = useAuth()
 
   return (
     <ContainerScreen d="flex" alignItems="center" justifyContent="center">

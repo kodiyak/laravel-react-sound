@@ -15,7 +15,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSignUp }) => {
       onSubmit={(data) => {
         console.log('submit', data)
 
-        return App.Api.AuthApi.authenticate(data)
+        return App.Resources.AuthResource.authenticateByCredentials(data)
       }}
     >
       <SimpleGrid gap={4}>

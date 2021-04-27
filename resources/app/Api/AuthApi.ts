@@ -49,14 +49,6 @@ export class AuthApi {
     }).then((res) => {
       this.token = res.data
       return res.data
-      // App.Ux.Router.history((history) => {
-      //   history.push('/')
-      //   App.Ux.Notification.notify({
-      //     title: 'You Successfully Authenticate',
-      //     position: 'bottom-right',
-      //     status: 'success',
-      //   })
-      // })
     })
   }
 
@@ -78,5 +70,9 @@ export class AuthApi {
     App.Axios.defaults.headers.Authorization = `${token.token_type} ${token.access_token}`
 
     return this
+  }
+
+  public getProfile() {
+    return App.Axios.get<App.Model.User>('/oauth/profile').then((res) => res.data)
   }
 }

@@ -2,6 +2,7 @@ import Ux from './Ux'
 import axios from 'axios'
 import Services from './Services'
 import Api from './Api'
+import Resources from './Resources'
 
 class App {
   public Axios = axios.create({
@@ -14,10 +15,13 @@ class App {
 
   public Api: typeof Api
 
+  public Resources: typeof Resources
+
   public constructor() {
     this.Api = Api
     this.Services = Services
     this.Ux = Ux
+    this.Resources = Resources
   }
 
   public getConfig() {
