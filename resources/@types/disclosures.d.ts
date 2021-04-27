@@ -7,6 +7,7 @@ declare namespace App {
     'Scale.Test': {
       item: any
     }
+    'Loading.Full': undefined
   }
 
   export namespace Disclosures {

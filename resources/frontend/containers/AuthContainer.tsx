@@ -23,6 +23,8 @@ const AuthContainer: React.FC = ({ children }) => {
   }
 
   useEffect(() => {
+    App.Resources.AuthResource.authenticateByToken()
+
     App.Resources.AuthResource.on('auth', onAuth)
 
     return () => {

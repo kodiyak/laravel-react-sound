@@ -14,6 +14,11 @@ export class AuthResource extends TypedEmitter<{
 
   public set isLoading(isLoading) {
     this.emit('loading')
+    if (isLoading) {
+      App.Ux.Disclosure.open('Loading.Full')
+    } else {
+      App.Ux.Disclosure.close('Loading.Full')
+    }
     this._isLoading = isLoading
   }
 
@@ -44,10 +49,25 @@ export class AuthResource extends TypedEmitter<{
     this.isLoading = true
     return App.Api.AuthApi.authenticate(credentials).then((token) => {
       console.log('token auth', token)
-      this.getProfile().then((profile) => {
+      return this.getProfile().then((profile) => {
         console.log('fetch profile', profile)
         this.isLoading = false
       })
     })
+  }
+
+  public async authenticateByToken() {
+    setTimeout(() => {
+      if (this.token) {
+        App.Ux.Disclosure.open('Loading.Full')
+        this.getProfile()
+          .then((profile) => {
+            console.log('auth by token', profile)
+          })
+          .finally(() => {
+            App.Ux.Disclosure.close('Loading.Full')
+          })
+      }
+    }, 0)
   }
 }

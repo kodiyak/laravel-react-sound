@@ -10,13 +10,9 @@ const Root: React.FC = () => {
   return (
     <Router>
       <RouteListener />
-      <ThemeContainer>
-        <InitializeContainer>
-          <AuthContainer>
-            <MainRoutes />
-          </AuthContainer>
-        </InitializeContainer>
-      </ThemeContainer>
+      <InitializeContainer>
+        <MainRoutes />
+      </InitializeContainer>
     </Router>
   )
 }

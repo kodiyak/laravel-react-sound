@@ -6,7 +6,7 @@ interface DisclosureEvents {
 }
 
 export class Disclosure extends TypedEmitter<DisclosureEvents> {
-  public open<N extends keyof App.Disclosures>(name: N, data: App.Disclosures[N]) {
+  public open<N extends keyof App.Disclosures>(name: N, data?: App.Disclosures[N]) {
     this.emit('open', name, {
       name,
       ...data,

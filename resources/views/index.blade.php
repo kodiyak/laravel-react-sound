@@ -8,6 +8,7 @@
 
     <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 
     <script type="text/javascript">
         window.APP_CONFIG = {
