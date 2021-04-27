@@ -1,5 +1,6 @@
 import { SimpleGrid, Button } from '@chakra-ui/react'
 import React from 'react'
+import App from '../../../../../app/App'
 import InputField from '../../../../components/Form/InputField'
 import Row from '../../../../components/Utils/Row'
 import { FormProvider } from '../../../../contexts/FormProvider'
@@ -10,14 +11,19 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSignUp }) => {
   return (
-    <FormProvider>
+    <FormProvider
+      onSubmit={(data) => {
+        console.log('submit', data)
+
+        return App.Api.AuthApi.authenticate(data)
+      }}
+    >
       <SimpleGrid gap={4}>
         <InputField
           name="username"
           rounded="sm"
           bg="rgba(0,0,0,.4)"
           label="E-mail"
-          value="admin@lrmusic.com"
         />
         <InputField
           rounded="sm"
@@ -25,7 +31,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSignUp }) => {
           bg="rgba(0,0,0,.4)"
           type="password"
           label="Password"
-          value="s.o536123"
         />
       </SimpleGrid>
       <Row mt={4}>
