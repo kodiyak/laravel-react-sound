@@ -6,13 +6,15 @@ import TextMini from '../../../Utils/TextMini'
 import { Text } from '@chakra-ui/layout'
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import InputField from '../../../Form/InputField'
+import ImageFileField from '../../../Form/ImageFileField'
 
 const ProfileForm: React.FC = () => {
   return (
     <Row>
       <Col w={200}>
-        <BoxFileField
-          name="image"
+        <ImageFileField
+          name="avatar"
+          label="Pick your avatar"
           w={100}
           h={100}
           cursor="pointer"
@@ -25,7 +27,7 @@ const ProfileForm: React.FC = () => {
           mx="auto"
         >
           <Text>Pick a Image</Text>
-        </BoxFileField>
+        </ImageFileField>
         <TextMini color="gray.400" userSelect="none" mt={2}>
           Max. File size 1MB
         </TextMini>

@@ -15,7 +15,11 @@ import { Square } from '@chakra-ui/layout'
 import { CogIcon, DashboardIcon } from '../../../Ux/Icons'
 import { Link } from 'react-router-dom'
 
-const AuthUserMenu: React.FC = ({ children }) => {
+interface AuthUserMenuProps {
+  user: App.Model.User
+}
+
+const AuthUserMenu: React.FC<AuthUserMenuProps> = ({ children }) => {
   return (
     <Menu matchWidth>
       <MenuButton cursor="pointer" userSelect="none" as={Box}>

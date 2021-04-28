@@ -9,15 +9,24 @@ import { SimpleGrid, Heading, Button } from '@chakra-ui/react'
 import InputField from '../../../../components/Form/InputField'
 import TextMini from '../../../../components/Utils/TextMini'
 import { Text } from '@chakra-ui/layout'
+import { useAuth } from '../../../../containers/AuthContainer'
 
 const SettingsProfilePage: React.FC = () => {
+  const { auth } = useAuth()
   return (
     <ScrollPage>
       <Row px={4}>
         <PageHeader title="Profile" />
       </Row>
       <Col px={4} w={600}>
-        <FormProvider>
+        <FormProvider
+          onStart={() => {
+            return auth
+          }}
+          onSubmit={(data) => {
+            console.log('submit', data)
+          }}
+        >
           <ProfileForm />
           <Row mt={2}>
             <Button
@@ -27,6 +36,7 @@ const SettingsProfilePage: React.FC = () => {
               colorScheme="primary"
               bg="primary.400"
               color="white"
+              type="submit"
             >
               Save Changes
             </Button>

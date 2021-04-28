@@ -6,10 +6,14 @@ import TextMini from '../../../../../../Utils/TextMini'
 import { DownIcon } from '../../../../../../Ux/Icons'
 import { Text } from '@chakra-ui/layout'
 import AuthUserMenu from '../../../../../../Atoms/Menus/AuthUserMenu/index'
+import { useAuth } from '../../../../../../../containers/AuthContainer'
 
 const UserBox: React.FC = () => {
+  const { auth } = useAuth()
+
+  if (!auth) return <></>
   return (
-    <AuthUserMenu>
+    <AuthUserMenu user={auth}>
       <Row h="100%" alignItems="center" userSelect="none" cursor="pointer">
         <Circle
           size={10}
@@ -17,10 +21,10 @@ const UserBox: React.FC = () => {
           border="2px solid transparent"
           borderColor="green.500"
         >
-          <Avatar w="100%" h="100%" />
+          <Avatar w="100%" h="100%" src={auth.avatar} />
         </Circle>
         <Col pl={4} pr={2}>
-          <TextMini>Username S.</TextMini>
+          <TextMini>{auth.username}</TextMini>
           <Text fontSize="xs" fontWeight="light">
             User
           </Text>

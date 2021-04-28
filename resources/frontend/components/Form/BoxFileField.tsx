@@ -3,11 +3,11 @@ import { useFieldState } from '../../hooks/helpers/useFieldState'
 import BoxFile from '../Utils/BoxFile'
 import { BoxProps } from '@chakra-ui/layout'
 
-type BoxFileFieldProps = BoxProps & {
+export type BoxFileFieldProps = {
   name: string
   isMultiple?: boolean
   onChange?: (files: FileList) => void
-}
+} & BoxProps
 
 const BoxFileField: React.FC<BoxFileFieldProps> = ({
   name,
