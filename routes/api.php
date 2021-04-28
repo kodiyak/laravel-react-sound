@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\HealthCheckController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::get('/health-check', HealthCheckController::class);
 
 Route::prefix('/oauth')->group(function () {
     Route::get('/profile', [AuthController::class, 'getProfile']);
+});
+
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('users', UserController::class);
 });
