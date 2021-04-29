@@ -26,7 +26,7 @@ const UserBox: React.FC = () => {
         <Col pl={4} pr={2}>
           <TextMini>{auth.username}</TextMini>
           <Text fontSize="xs" fontWeight="light">
-            User
+            {auth.first_name} {auth.last_name?.[0]}
           </Text>
         </Col>
         <Box>

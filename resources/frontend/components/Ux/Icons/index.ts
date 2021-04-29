@@ -14,6 +14,8 @@ export {
   AiOutlineClockCircle as ClockIcon,
   AiOutlineHome as HomeIcon,
   AiOutlineSetting as CogIcon,
+  AiOutlineLogout as SignOutIcon,
+  AiOutlineLogout as LogoutIcon,
 } from 'react-icons/ai'
 export {
   BsCollectionPlayFill as AlbumIcon,

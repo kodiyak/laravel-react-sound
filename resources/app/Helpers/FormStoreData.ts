@@ -1,14 +1,16 @@
 type StrictValue = File | FileList | string | number | boolean
 
 export class FormStoreData<T> {
-  private _data: T
+  // @ts-ignore
+  private _data: T = {}
 
   private _id: number | string
 
   private _fieldID = 'id'
 
   private get hasFile() {
-    for (const value of this._data as any) {
+    for (const fieldName in this._data) {
+      const value = this._data[fieldName]
       if (value instanceof File) {
         return true
       }
@@ -17,7 +19,8 @@ export class FormStoreData<T> {
   }
 
   private get hasFileList() {
-    for (const value of this._data as any) {
+    for (const fieldName in this._data as any) {
+      const value = this._data[fieldName]
       if (value instanceof FileList) {
         return true
       }
@@ -31,7 +34,7 @@ export class FormStoreData<T> {
 
   public constructor(data?: T) {
     if (data) {
-      this._data = data
+      this.fill(data)
     } else {
       // @ts-ignore
       this._data = {}

@@ -5,23 +5,8 @@ import { TypedEmitter } from 'tiny-typed-emitter'
 export class AuthResource extends TypedEmitter<{
   auth: () => void
   loading: () => void
+  logout: () => void
 }> {
-  private _isLoading = false
-
-  public get isLoading() {
-    return this._isLoading
-  }
-
-  public set isLoading(isLoading) {
-    this.emit('loading')
-    if (isLoading) {
-      App.Ux.Disclosure.open('Loading.Full')
-    } else {
-      App.Ux.Disclosure.close('Loading.Full')
-    }
-    this._isLoading = isLoading
-  }
-
   private _profile?: App.Model.User
 
   public get profile() {
@@ -46,20 +31,23 @@ export class AuthResource extends TypedEmitter<{
   }
 
   public authenticateByCredentials(credentials: AuthCredentials) {
-    this.isLoading = true
     return App.Api.AuthApi.authenticate(credentials).then((token) => {
-      console.log('token auth', token)
-      return this.getProfile().then((profile) => {
-        console.log('fetch profile', profile)
-        this.isLoading = false
-      })
+      return this.getProfile()
+        .then((profile) => {
+          console.log('fetch profile', profile)
+        })
+        .then(() => {
+          App.Ux.Router.push('/')
+        })
     })
   }
 
-  public async authenticateByToken() {
+  public async authenticateByToken(silent = false) {
     setTimeout(() => {
       if (this.token) {
-        App.Ux.Disclosure.open('Loading.Full')
+        if (!silent) {
+          App.Ux.Disclosure.open('Loading.Full')
+        }
         this.getProfile()
           .then((profile) => {
             console.log('auth by token', profile)
@@ -69,5 +57,19 @@ export class AuthResource extends TypedEmitter<{
           })
       }
     }, 0)
+  }
+
+  public setProfile(user: App.Model.User) {
+    this.profile = {
+      ...this.profile,
+      ...user,
+    }
+  }
+
+  public logout() {
+    App.Api.AuthApi.revokeLocalToken()
+    this.profile = undefined
+    App.Ux.Router.push('/login')
+    this.emit('logout')
   }
 }

@@ -10,6 +10,7 @@ import InputField from '../../../../components/Form/InputField'
 import TextMini from '../../../../components/Utils/TextMini'
 import { Text } from '@chakra-ui/layout'
 import { useAuth } from '../../../../containers/AuthContainer'
+import App from '../../../../../app/App'
 
 const SettingsProfilePage: React.FC = () => {
   const { auth } = useAuth()
@@ -24,7 +25,9 @@ const SettingsProfilePage: React.FC = () => {
             return auth
           }}
           onSubmit={(data) => {
-            console.log('submit', data)
+            return App.Api.UserApi.update(auth, data).then((user) => {
+              App.Resources.AuthResource.setProfile(user)
+            })
           }}
         >
           <ProfileForm />

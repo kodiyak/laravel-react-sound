@@ -66,6 +66,12 @@ export class AuthApi {
     return this
   }
 
+  public revokeLocalToken() {
+    localStorage.removeItem(this.AUTH_TOKEN)
+
+    return this
+  }
+
   private authenticateAxios(token: AuthToken) {
     App.Axios.defaults.headers.Authorization = `${token.token_type} ${token.access_token}`
 
