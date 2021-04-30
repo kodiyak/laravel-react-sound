@@ -18,6 +18,16 @@ class App {
   public Resources: typeof Resources
 
   public constructor() {
+    const self = this
+    this.Axios.interceptors.response.use(undefined, function (error) {
+      if (error.response) {
+        if (error.response.status === 401) {
+          self.Resources.AuthResource.logout()
+        }
+      }
+      return Promise.reject(error)
+    })
+
     this.Api = Api
     this.Services = Services
     this.Ux = Ux

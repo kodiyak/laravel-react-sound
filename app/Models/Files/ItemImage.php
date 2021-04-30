@@ -12,4 +12,14 @@ class ItemImage extends Model
     protected $fillable = [
         'folder',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(FileImage::class, 'item_image_id');
+    }
+
+    public function getDirectory()
+    {
+        return 'item-image/' . $this->id;
+    }
 }

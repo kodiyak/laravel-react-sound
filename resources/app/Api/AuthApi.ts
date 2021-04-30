@@ -17,7 +17,7 @@ export class AuthApi {
   private authPayload = {
     grant_type: 'password',
     client_id: 2,
-    client_secret: 'lu7EpkifHRdN9nFxhSETF0b17M4FWfeRkLu2HiWi',
+    client_secret: 'imQzQCSVR0pBRJTOnw1V3TKCSNA9YVKdCSBv8Wlk',
   }
 
   private AUTH_TOKEN = 'auth.token'

@@ -121,7 +121,7 @@ class UploadImageFile
         $path = $directory . '/' . $this->getFileName();
         $fullPath = $this->fileSystem->path($path);
 
-        $this->image->save($fullPath, 100, 'webp');
+        $this->image->save($fullPath, 100, $this->extension);
 
         return $path;
     }

@@ -17,6 +17,7 @@ class CreateFileImagesTable extends Migration
             $table->id();
             $table->string('path');
             $table->string('size');
+            $table->json('metadata')->nullable();
             $table->timestamps();
 
             $table

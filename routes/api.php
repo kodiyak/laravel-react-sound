@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\HealthCheckController;
-use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\{
+    UserController,
+    ArtistController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +31,5 @@ Route::prefix('/oauth')->group(function () {
 
 Route::middleware('auth:api')->group(function () {
     Route::apiResource('users', UserController::class);
+    Route::apiResource('artists', ArtistController::class);
 });
