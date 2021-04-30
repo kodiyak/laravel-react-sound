@@ -30,22 +30,14 @@ class ArtistController extends Controller
         $artist = new Artist();
         $artist->real_name = $request->get('real_name');
         $artist->artistic_name = $request->get('artistic_name');
-        $artist->user_id = $request->user()->id;
+        $artist->user()->associate($request->user());
 
         if ($request->hasFile('avatar')) {
-            $artist->setItemImage('item_image_avatar_id', $request->file('avatar'), [
-                [500],
-                [1000],
-                [2000],
-            ]);
+            $artist->setAvatar($request->file('avatar'));
         }
 
         if ($request->hasFile('cover')) {
-            $artist->setItemImage('item_image_cover_id', $request->file('cover'), [
-                [500],
-                [1000],
-                [2000],
-            ]);
+            $artist->setCover($request->file('cover'));
         }
 
         $artist->setApproveDetail([
@@ -55,7 +47,8 @@ class ArtistController extends Controller
         $artist->load('avatar', 'cover', 'approveDetail');
 
         $artist->save();
-        dd($artist->toArray());
+
+        return $artist;
     }
 
     /**

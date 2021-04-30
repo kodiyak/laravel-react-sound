@@ -2,6 +2,7 @@
 
 namespace App\Models\Files;
 
+use App\Casts\AsFileUrl;
 use App\Casts\JsonCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,5 +20,6 @@ class FileImage extends Model
 
     protected $casts = [
         'metadata' => JsonCast::class,
+        'path' => AsFileUrl::class,
     ];
 }

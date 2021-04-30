@@ -38,6 +38,41 @@ class Artist extends Model
         return $this->belongsTo(ItemImage::class, 'item_image_cover_id')->with('images');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * setCover
+     *
+     * @param  \Illuminate\Http\UploadedFile|string $image
+     * @return This
+     */
+    public function setCover($image)
+    {
+        $this->setItemImage('item_image_cover_id', $image, [
+            [500],
+            [1000],
+            [2000],
+        ]);
+    }
+
+    /**
+     * setAvatar
+     *
+     * @param  \Illuminate\Http\UploadedFile|string $image
+     * @return void
+     */
+    public function setAvatar($image)
+    {
+        $this->setItemImage('item_image_avatar_id', $image, [
+            [500],
+            [1000],
+            [2000],
+        ]);
+    }
+
     public function approveDetail()
     {
         return $this->belongsTo(ApproveDetail::class, 'approve_detail_id');
