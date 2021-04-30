@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Files\ItemImage;
+use App\Services\Traits\HasApproveDetail;
 use App\Services\Traits\HasItemImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,7 @@ use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class Artist extends Model
 {
-    use HasFactory, HasUuid, HasItemImage;
+    use HasFactory, HasUuid, HasItemImage, HasApproveDetail;
 
     /**
      * The attributes that are mass assignable.
@@ -35,5 +36,10 @@ class Artist extends Model
     public function cover()
     {
         return $this->belongsTo(ItemImage::class, 'item_image_cover_id')->with('images');
+    }
+
+    public function approveDetail()
+    {
+        return $this->belongsTo(ApproveDetail::class, 'approve_detail_id');
     }
 }

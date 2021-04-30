@@ -20,10 +20,9 @@ class CreateApproveDetailsTable extends Migration
             $table->boolean('id_banned')->nullable();
             $table->text('ban_reason')->nullable();
             $table->timestamps();
-            $table
-                ->foreignId('user_admin_id')
-                ->references('id')
-                ->on('users');
+            $table->unsignedBigInteger('user_admin_id')->nullable();
+
+            $table->foreign('user_admin_id')->references('id')->on('users');
         });
 
         $this->upApproveDetails('artists');

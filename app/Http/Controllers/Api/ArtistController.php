@@ -48,11 +48,14 @@ class ArtistController extends Controller
             ]);
         }
 
-        $artist->load('avatar', 'cover');
-        dd($artist->toArray());
+        $artist->setApproveDetail([
+            'approved_at' => now(),
+        ]);
+
+        $artist->load('avatar', 'cover', 'approveDetail');
 
         $artist->save();
-        dd($artist);
+        dd($artist->toArray());
     }
 
     /**

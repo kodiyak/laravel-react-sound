@@ -16,4 +16,13 @@ class ApproveDetail extends Model
         'is_banned',
         'ban_reason',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'approved_at' => 'datetime',
+    ];
 }
