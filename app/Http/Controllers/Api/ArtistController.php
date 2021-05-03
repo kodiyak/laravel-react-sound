@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Artist\ArtistStoreRequest;
 use App\Models\Artist;
 use App\Services\File\UploadImageItemFile;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        //
+        return Artist::query()->paginate();
     }
 
     /**
@@ -25,12 +26,14 @@ class ArtistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArtistStoreRequest $request)
     {
         $artist = new Artist();
         $artist->real_name = $request->get('real_name');
         $artist->artistic_name = $request->get('artistic_name');
         $artist->user()->associate($request->user());
+
+        dd($request->validated());
 
         if ($request->hasFile('avatar')) {
             $artist->setAvatar($request->file('avatar'));
