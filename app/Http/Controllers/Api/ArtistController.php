@@ -33,8 +33,6 @@ class ArtistController extends Controller
         $artist->artistic_name = $request->get('artistic_name');
         $artist->user()->associate($request->user());
 
-        // dd($request->validated());
-
         if ($request->hasFile('avatar')) {
             $artist->setAvatar($request->file('avatar'));
         }
