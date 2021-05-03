@@ -30,6 +30,7 @@ class AlbumController extends Controller
         $album = new Album();
         $album->title = $request->get('title');
         $album->release_year = (int) $request->get('release_year');
+        $album->type = $request->get('type');
         $album->setApproveDetail([]);
         $album->user()->associate($request->user());
 

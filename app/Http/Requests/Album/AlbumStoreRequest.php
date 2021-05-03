@@ -26,6 +26,7 @@ class AlbumStoreRequest extends FormRequest
         return [
             'title' => 'required',
             'release_year' => 'numeric',
+            'type' => '',
             'artists_id.*' => 'numeric|exists:artists,id',
             'avatar' => 'mimes:jpg,gif,png',
             'cover' => 'mimes:jpg,gif,png',

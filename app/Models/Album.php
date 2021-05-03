@@ -21,6 +21,7 @@ class Album extends Model
     protected $fillable = [
         'title',
         'release_year',
+        'type',
         'user_id',
         'approve_detail_id',
         'item_image_avatar_id',
