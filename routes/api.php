@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\{
     AlbumController,
     UserController,
     ArtistController,
-    PlaylistController
+    PlaylistController,
+    TrackController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -21,10 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::get('/health-check', HealthCheckController::class);
 
 Route::prefix('/oauth')->group(function () {
@@ -36,4 +33,6 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('artists', ArtistController::class);
     Route::apiResource('playlists', PlaylistController::class);
     Route::apiResource('albums', AlbumController::class);
+
+    Route::post('albums/{album}/tracks', [TrackController::class, 'store']);
 });
