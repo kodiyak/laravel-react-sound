@@ -17,9 +17,15 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->uuid('uuid');
             $table->string('title');
+            $table->string('type')->nullable();
             $table->year('release_year')->nullable();
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
 
+            $table
+                ->foreignId('artist_id')
+                ->references('id')
+                ->on('artists');
             $table
                 ->foreignId('user_id')
                 ->references('id')
