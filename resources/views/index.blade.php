@@ -20,6 +20,11 @@
                     black: "http://laravel-react-sound.test/img/logo-horizontal-black.png",
                     white: "http://laravel-react-sound.test/img/logo-horizontal-white.png"
                 },
+            },
+            AUTH: {
+                grant_type: 'password',
+                client_id: {{ $oAuthClient->id }},
+                client_secret: '{{ $oAuthClient->secret }}',
             }
         }
     </script>

@@ -14,12 +14,6 @@ interface AuthToken {
 }
 
 export class AuthApi {
-  private authPayload = {
-    grant_type: 'password',
-    client_id: 2,
-    client_secret: 'X6lTVWK6Vj8Zh22N2xK1bmk13reF6jh1NPopGyHU',
-  }
-
   private AUTH_TOKEN = 'auth.token'
 
   private _token?: AuthToken
@@ -43,8 +37,9 @@ export class AuthApi {
   }
 
   public authenticate(credentials: AuthCredentials) {
+    const authPayload = App.getConfig().AUTH
     return App.Axios.post<AuthToken>('/oauth/token', {
-      ...this.authPayload,
+      ...authPayload,
       ...credentials,
     }).then((res) => {
       this.token = res.data

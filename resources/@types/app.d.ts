@@ -9,5 +9,10 @@ declare namespace App {
         white: string
       }
     }
+    AUTH: {
+      grant_type: string
+      client_id: number
+      client_secret: string
+    }
   }
 }
