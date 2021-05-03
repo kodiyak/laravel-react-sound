@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Track\TrackStoreRequest;
 use App\Models\Album;
 use App\Models\Track;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Album $album)
+    public function store(TrackStoreRequest $request, Album $album)
     {
         $track = new Track();
         $track->title = $request->get('title');
