@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Album\AlbumStoreRequest;
 use App\Models\Album;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,28 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlbumStoreRequest $request)
     {
-        dd($request->all());
+        $album = new Album();
+        $album->title = $request->get('title');
+        $album->release_year = (int) $request->get('release_year');
+        $album->setApproveDetail([]);
+        $album->user()->associate($request->user());
+
+        if ($request->hasFile('cover')) {
+            $album->setCover($request->file('cover'));
+        }
+        if ($request->hasFile('avatar')) {
+            $album->setAvatar($request->file('avatar'));
+        }
+
+        $album->save();
+
+        $album->setArtistsByIds($request->get('artists_id'));
+
+        $album->load('avatar', 'cover', 'approveDetail', 'artists');
+
+        return $album;
     }
 
     /**

@@ -23,10 +23,6 @@ class CreateAlbumsTable extends Migration
             $table->timestamps();
 
             $table
-                ->foreignId('artist_id')
-                ->references('id')
-                ->on('artists');
-            $table
                 ->foreignId('user_id')
                 ->references('id')
                 ->on('users');

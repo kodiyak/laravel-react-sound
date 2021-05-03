@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Playlist;
+namespace App\Http\Requests\Album;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PlaylistStoreRequest extends FormRequest
+class AlbumStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,10 @@ class PlaylistStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => '',
+            'release_year' => 'numeric',
+            'artists_id.*' => 'numeric|exists:artists,id',
             'avatar' => 'mimes:jpg,gif,png',
+            'cover' => 'mimes:jpg,gif,png',
         ];
     }
 }

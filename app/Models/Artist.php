@@ -38,6 +38,11 @@ class Artist extends Model
         return $this->belongsTo(ItemImage::class, 'item_image_cover_id')->with('images');
     }
 
+    public function approveDetail()
+    {
+        return $this->belongsTo(ApproveDetail::class, 'approve_detail_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -71,10 +76,5 @@ class Artist extends Model
             [1000],
             [2000],
         ]);
-    }
-
-    public function approveDetail()
-    {
-        return $this->belongsTo(ApproveDetail::class, 'approve_detail_id');
     }
 }

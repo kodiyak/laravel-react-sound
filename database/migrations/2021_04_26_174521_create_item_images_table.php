@@ -38,10 +38,9 @@ class CreateItemImagesTable extends Migration
     {
         Schema::table($table, function (Blueprint $table) use ($columns) {
             foreach ($columns as $column) {
-                $table
-                    ->foreignId($column)
-                    ->references('id')
-                    ->on('item_images');
+                $table->unsignedBigInteger($column)->nullable();
+
+                $table->foreign($column)->references('id')->on('item_images');
             }
         });
     }
