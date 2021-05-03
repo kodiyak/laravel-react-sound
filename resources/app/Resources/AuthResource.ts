@@ -24,7 +24,7 @@ export class AuthResource extends TypedEmitter<{
 
   public getProfile() {
     return App.Api.AuthApi.getProfile().then((profile) => {
-      this.profile = profile
+      this.profile = profile.auth
 
       return profile
     })

@@ -74,6 +74,6 @@ export class AuthApi {
   }
 
   public getProfile() {
-    return App.Axios.get<App.Model.User>('/oauth/profile').then((res) => res.data)
+    return App.Axios.get<App.Profile>('/oauth/profile').then((res) => res.data)
   }
 }

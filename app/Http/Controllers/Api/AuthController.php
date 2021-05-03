@@ -19,6 +19,8 @@ class AuthController extends Controller
 
     public function getProfile(Request $request)
     {
-        return $request->user();
+        return [
+            'auth' => $request->user(),
+        ];
     }
 }
