@@ -41,11 +41,11 @@ class AlbumController extends Controller
             $album->setAvatar($request->file('avatar'));
         }
 
-        $album->save();
-
         $album->setArtistsByIds($request->get('artists_id'));
 
         $album->load('avatar', 'cover', 'approveDetail', 'artists');
+
+        $album->save();
 
         return $album;
     }

@@ -46,6 +46,8 @@ class TrackController extends Controller
 
         $track->load('user', 'album', 'approveDetail', 'avatar');
 
+        $track->save();
+
         return $track;
     }
 

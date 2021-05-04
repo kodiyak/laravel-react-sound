@@ -38,6 +38,8 @@ class PlaylistController extends Controller
             $playlist->setImage('avatar', $request->file('avatar'));
         }
 
+        $playlist->save();
+
         return $playlist;
     }
 

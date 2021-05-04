@@ -1,5 +1,5 @@
-import { Box, Heading } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Button, Heading } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
 import PlaylistCard from '../../../components/Organisms/Playlist/PlaylistCard/index'
 import Col from '../../../components/Utils/Col'
 import Row from '../../../components/Utils/Row'
@@ -8,8 +8,12 @@ import TitlePage from '../../../components/Ux/Page/TitlePage'
 import ArtistsGrid from '../../../components/Atoms/Grids/ArtistsGrid/index'
 import PlaylistGrid from '../../../components/Atoms/Grids/PlaylistGrid/index'
 import PageHeader from '../../../components/Atoms/Headers/PageHeader/index'
+import App from '../../../../app/App'
+import { useCollect } from '../../../hooks/useCollect'
 
 const HomePage: React.FC = () => {
+  const playlists = useCollect(App.Collections.playlists)
+
   return (
     <>
       <Box h={1500} px={4}>
@@ -22,6 +26,7 @@ const HomePage: React.FC = () => {
               My Playlists
             </Heading>
           </Row>
+          <Row>{JSON.stringify(playlists.data)}</Row>
           <PlaylistGrid>
             <PlaylistCard />
             <PlaylistCard />

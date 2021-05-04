@@ -25,6 +25,11 @@ export class AuthResource extends TypedEmitter<{
   public getProfile() {
     return App.Api.AuthApi.getProfile().then((profile) => {
       this.profile = profile.auth
+      if (profile.auth.playlists) {
+        profile.auth.playlists.forEach((playlist) =>
+          App.Collections.playlists.set(playlist)
+        )
+      }
 
       return profile
     })

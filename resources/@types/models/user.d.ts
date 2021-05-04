@@ -12,6 +12,7 @@ declare namespace App {
       ban_reason?: string
       role?: 0 | 1
       is_contributor?: 0 | 1 | boolean
+      playlists?: App.Model.Playlist[]
     }
   }
 }

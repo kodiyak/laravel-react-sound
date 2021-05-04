@@ -3,6 +3,7 @@ import axios from 'axios'
 import Services from './Services'
 import Api from './Api'
 import Resources from './Resources'
+import { Collect } from './Collections/Collect'
 
 class App {
   public Axios = axios.create({
@@ -16,6 +17,10 @@ class App {
   public Api: typeof Api
 
   public Resources: typeof Resources
+
+  public Collections = {
+    playlists: new Collect<App.Model.Playlist>(),
+  }
 
   public constructor() {
     const self = this
