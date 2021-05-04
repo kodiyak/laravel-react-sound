@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\AsFileUrl;
 use App\Models\Files\ItemImage;
 use App\Services\Traits\HasApproveDetail;
 use App\Services\Traits\HasItemImage;
@@ -14,6 +15,11 @@ class Track extends Model
 {
     use HasFactory, HasUuid, HasApproveDetail, HasItemImage;
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $fillable = [
         'title',
         'path_track',
@@ -21,6 +27,15 @@ class Track extends Model
         'album_id',
         'item_image_avatar_id',
         'approve_detail_id',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'path_track' => AsFileUrl::class,
     ];
 
     public function user()
@@ -51,10 +66,9 @@ class Track extends Model
      */
     public function setTrack($track, $disk = 'public')
     {
-        $extension = $track->guessClientExtension() ?? $track->guessExtension() ?? 'mp3';
-        $path = 'tracks/' . $this->id . '_track.' . $extension;
-        Storage::disk($disk)->put($path, $track);
-        $this->path_track = $path;
+        $path = 'tracks/' . $this->id;
+
+        $this->path_track = Storage::disk($disk)->put($path, $track);
 
         return $this;
     }

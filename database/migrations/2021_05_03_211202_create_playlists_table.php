@@ -15,8 +15,10 @@ class CreatePlaylistsTable extends Migration
     {
         Schema::create('playlists', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->boolean('is_collab')->default(false);
             $table->string('avatar')->nullable();
             $table->timestamps();
 
@@ -28,6 +30,11 @@ class CreatePlaylistsTable extends Migration
             $table->foreignId('playlist_id')->references('id')->on('playlists');
             $table->boolean('can_edit')->default(false);
         });
+
+        Schema::create('playlists_has_tracks', function (Blueprint $table) {
+            $table->foreignId('track_id')->references('id')->on('tracks');
+            $table->foreignId('playlist_id')->references('id')->on('playlists');
+        });
     }
 
     /**
@@ -37,6 +44,7 @@ class CreatePlaylistsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('playlists_has_tracks');
         Schema::dropIfExists('playlists_has_users');
         Schema::dropIfExists('playlists');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Auth\AuthBaseResource;
 use App\Models\Album;
 use App\Models\Artist;
 use Illuminate\Http\Request;
@@ -22,10 +23,9 @@ class AuthController extends Controller
     public function getProfile(Request $request)
     {
         $user = $request->user();
-        $user->load('playlists');
 
         return [
-            'auth' => $user,
+            'auth' => new AuthBaseResource($user),
             'artists' => Artist::all(),
             'albums' => Album::all(),
         ];

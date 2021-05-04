@@ -35,4 +35,6 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('albums', AlbumController::class);
 
     Route::post('albums/{album}/tracks', [TrackController::class, 'store']);
+    Route::post('playlists/{playlist}/tracks/{track}', [PlaylistController::class, 'addTrack']);
+    Route::delete('playlists/{playlist}/tracks/{track}', [PlaylistController::class, 'removeTrack']);
 });

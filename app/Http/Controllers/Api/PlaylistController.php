@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Playlist\PlaylistStoreRequest;
 use App\Models\Playlist;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
 class PlaylistController extends Controller
@@ -75,5 +76,23 @@ class PlaylistController extends Controller
     public function destroy(Playlist $playlist)
     {
         //
+    }
+
+    public function addTrack(Playlist $playlist, Track $track)
+    {
+        $playlist->addTrack($track);
+
+        $playlist->load('tracks');
+
+        return $playlist;
+    }
+
+    public function removeTrack(Playlist $playlist, Track $track)
+    {
+        $playlist->removeTrack($track);
+
+        $playlist->load('tracks');
+
+        return $playlist;
     }
 }
