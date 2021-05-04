@@ -55,4 +55,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'avatar' => AsFileUrl::class,
     ];
+
+    public function playlists()
+    {
+        return $this->hasMany(Playlist::class, 'user_id');
+    }
+
+    public function playlistsFollowing()
+    {
+        return $this->belongsToMany(Playlist::class, 'playlists_has_users');
+    }
 }

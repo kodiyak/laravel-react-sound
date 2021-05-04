@@ -48,6 +48,11 @@ class Artist extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function albums()
+    {
+        return $this->belongsToMany(Album::class, 'artists_has_albums');
+    }
+
     /**
      * setCover
      *

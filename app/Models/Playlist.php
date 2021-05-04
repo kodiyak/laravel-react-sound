@@ -36,4 +36,9 @@ class Playlist extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'playlists_has_users');
+    }
 }
